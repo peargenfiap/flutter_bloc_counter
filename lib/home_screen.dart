@@ -11,27 +11,27 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CounterBloc, CounterState>(
       builder: (context, state) {
         return MyHomePage(
-          title: 'Bloc',
-          counter: state.counter,
-          onIncrementPressed: () {
-            context.read<CounterBloc>().add(const IncrementEvent());
-          },
-          onDecrementPressed: () {
-            context.read<CounterBloc>().add(const DecrementEvent());
-          }
-        );
+            title: 'Bloc',
+            counter: state.counter,
+            onIncrementPressed: () {
+              context.read<CounterBloc>().add(const IncrementEvent());
+            },
+            onDecrementPressed: () {
+              context.read<CounterBloc>().add(const DecrementEvent());
+            },
+            onGenerateRandomPressed: () {
+              context.read<CounterBloc>().add(const GenerateRandomEvent());
+            },
+            onResetPressed: () {
+              context.read<CounterBloc>().add(const ResetEvent());
+            });
       },
-      listener: (context, state) {
-        if (state is IncremenetState) {
-          _counter = state.counter;
-        }
-      },
+      listener: (context, state) {},
     );
   }
 }

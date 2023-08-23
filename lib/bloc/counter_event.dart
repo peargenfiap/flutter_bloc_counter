@@ -14,3 +14,11 @@ class IncrementEvent extends CounterEvent {
 class DecrementEvent extends CounterEvent {
   const DecrementEvent();
 }
+
+class GenerateRandomEvent extends CounterEvent {
+  const GenerateRandomEvent();
+}
+
+class ResetEvent extends CounterEvent {
+  const ResetEvent();
+}
